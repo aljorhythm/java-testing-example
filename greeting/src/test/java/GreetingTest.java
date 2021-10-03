@@ -28,4 +28,22 @@ public class GreetingTest {
         String expected = "HELLO, JOEL!";
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void GreetWithTwoNamesShouldJoin() {
+        String[] name = {"joel", "noel"};
+        String actual = Greeting.greet(name);
+
+        String expected = "Hello, joel and noel.";
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void GreetWithMoreNamesShouldJoin() {
+        String[] name = {"Joel", "John", "Noel"};
+        String actual = Greeting.greet(name);
+
+        String expected = "Hello, Joel, John and Noel.";
+        Assert.assertEquals(expected, actual);
+    }
 }
