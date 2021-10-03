@@ -19,4 +19,13 @@ public class GreetingTest {
         String expected = "Hello, my friend.";
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void GreetWithShoutShouldCapitalise() {
+        String name = "JOEL";
+        String actual = Greeting.greet(name);
+
+        String expected = "HELLO, JOEL.";
+        Assert.assertEquals(expected, actual);
+    }
 }
