@@ -31,10 +31,10 @@ public class GreetingTest {
 
     @Test
     public void GreetWithMultipleShouldJoin() {
-        String[] name = {"joel"};
+        String[] name = {"joel", "noel"};
         String actual = Greeting.greet(name);
 
-        String expected = "Hello, joel.";
+        String expected = "Hello, joel and noel.";
         Assert.assertEquals(expected, actual);
     }
 }
