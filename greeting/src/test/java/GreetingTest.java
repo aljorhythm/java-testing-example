@@ -10,4 +10,13 @@ public class GreetingTest {
         String expected = "Hello, Joel.";
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void GreetWithNullNameShouldInterpolateStandIn() {
+        String name = null;
+        String actual = Greeting.greet(name);
+
+        String expected = "Hello, my friend.";
+        Assert.assertEquals(expected, actual);
+    }
 }
