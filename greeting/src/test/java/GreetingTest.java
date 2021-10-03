@@ -28,4 +28,13 @@ public class GreetingTest {
         String expected = "HELLO, JOEL!";
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void GreetWithMultipleShouldJoin() {
+        String[] name = {"joel"};
+        String actual = Greeting.greet(name);
+
+        String expected = "Hello, joel.";
+        Assert.assertEquals(expected, actual);
+    }
 }
