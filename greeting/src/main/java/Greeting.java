@@ -3,6 +3,15 @@ public class Greeting {
         if (name == null) {
             name = "my friend";
         }
-        return String.format("Hello, %s.", name);
+
+        boolean isUpperCase = name.chars().allMatch(
+                Character::isUpperCase
+        );
+
+        if (isUpperCase) {
+            return String.format("Hello, %s!", name).toUpperCase();
+        } else {
+            return String.format("Hello, %s.", name);
+        }
     }
 }
