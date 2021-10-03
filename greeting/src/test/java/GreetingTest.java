@@ -40,7 +40,7 @@ public class GreetingTest {
 
     @Test
     public void GreetWithMoreNamesShouldJoin() {
-        String[] name = {"Joel", "Noel", "John"};
+        String[] name = {"Joel", "John", "Noel"};
         String actual = Greeting.greet(name);
 
         String expected = "Hello, Joel, John and Noel.";
