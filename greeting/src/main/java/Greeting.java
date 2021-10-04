@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Greeting {
 
-    static String greetFormat(String prefix, String delimiter, String lastJoin, String suffix, String... names) {
+    static String greetFormat(String prefix, String delimiter, String oxford, String lastJoin, String suffix, String... names) {
         names = Arrays.stream(names)
                 .filter(Objects::nonNull)
                 .toArray(String[]::new);
@@ -19,6 +19,9 @@ public class Greeting {
             String nMinusOneNames = Arrays.stream(names)
                     .limit(names.length - 1)
                     .collect(Collectors.joining(delimiter));
+            if (names.length > 2) {
+                nMinusOneNames += oxford;
+            }
             String lastName = names[names.length - 1];
             components.add(nMinusOneNames);
             components.add(lastName);
@@ -35,7 +38,7 @@ public class Greeting {
      * @return
      */
     private static String greetSoft(String... names) {
-        return greetFormat("Hello, ", ", ", " and ", ".", names);
+        return greetFormat("Hello, ", ", ", ",", " and ", ".", names);
     }
 
     /**
@@ -43,7 +46,7 @@ public class Greeting {
      * @return
      */
     private static String greetShout(String... names) {
-        return greetFormat("HELLO, ", ", ", " AND ", "!", names);
+        return greetFormat("HELLO ", ", ", ",", " AND ", "!", names);
     }
 
     public static String greet(String... names) {
