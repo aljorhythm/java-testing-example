@@ -49,6 +49,10 @@ public class Greeting {
         return greetFormat("HELLO ", ", ", ",", " AND ", "!", names);
     }
 
+    public static String[] splitInput(String input) {
+        return input.split(",");
+    }
+
     public static String greet(String... names) {
         List<String> lowercaseNames = new ArrayList<>();
         List<String> uppercaseNames = new ArrayList<>();
@@ -57,7 +61,7 @@ public class Greeting {
             if (nameOrCombined == null) {
                 continue;
             }
-            String[] splitNames = nameOrCombined.split(",");
+            String[] splitNames = splitInput(nameOrCombined);
             for (String name : splitNames) {
                 name = name.strip();
                 if (name.chars().allMatch(Character::isUpperCase)) {
