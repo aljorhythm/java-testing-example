@@ -35,7 +35,7 @@ public class Greeting {
      * @return
      */
     private static String greetSoft(String... names) {
-        return greetFormat("Hello, ", ", ", "and", ".", names);
+        return greetFormat("Hello, ", ", ", " and ", ".", names);
     }
 
     /**
@@ -43,7 +43,7 @@ public class Greeting {
      * @return
      */
     private static String greetShout(String... names) {
-        return greetFormat("HELLO, ", ", ", "AND", "!", names);
+        return greetFormat("HELLO, ", ", ", " AND ", "!", names);
     }
 
     public static String greet(String... names) {
