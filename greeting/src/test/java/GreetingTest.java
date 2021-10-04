@@ -43,7 +43,7 @@ public class GreetingTest {
         String[] names = {"Joel", "John", "Noel"};
         String actual = Greeting.greet(names);
 
-        String expected = "Hello, Joel, John and Noel.";
+        String expected = "Hello, Joel, John, and Noel.";
         Assert.assertEquals(expected, actual);
     }
 
@@ -70,7 +70,7 @@ public class GreetingTest {
         String[] names = {"Joel", "JOHN", "Noel", "JAME", "MIKEL"};
         String actual = Greeting.greet(names);
 
-        String expected = "Hello, Joel and Noel. AND HELLO JOHN, MIKEL AMD JAME!";
+        String expected = "Hello, Joel and Noel. AND HELLO JOHN, MIKEL, AMD JAME!";
         Assert.assertEquals(expected, actual);
     }
 }
