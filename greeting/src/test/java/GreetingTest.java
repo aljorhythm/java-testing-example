@@ -31,8 +31,8 @@ public class GreetingTest {
 
     @Test
     public void GreetWithTwoNamesShouldJoin() {
-        String[] name = {"joel", "noel"};
-        String actual = Greeting.greet(name);
+        String[] names = {"joel", "noel"};
+        String actual = Greeting.greet(names);
 
         String expected = "Hello, joel and noel.";
         Assert.assertEquals(expected, actual);
@@ -40,10 +40,37 @@ public class GreetingTest {
 
     @Test
     public void GreetWithMoreNamesShouldJoin() {
-        String[] name = {"Joel", "John", "Noel"};
-        String actual = Greeting.greet(name);
+        String[] names = {"Joel", "John", "Noel"};
+        String actual = Greeting.greet(names);
 
         String expected = "Hello, Joel, John and Noel.";
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void GreetWithMixedNames() {
+        String[] names = {"Joel", "John", "NOEL"};
+        String actual = Greeting.greet(names);
+
+        String expected = "Hello, Joel and John. AND HELLO NOEL!";
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void GreetWithMixedNamesOutOfOrder() {
+        String[] names = {"Joel", "JOHN", "Noel", "JAME"};
+        String actual = Greeting.greet(names);
+
+        String expected = "Hello, Joel and Noel. AND HELLO JOHN AMD JAME!";
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void GreetWithMixedMultipleNames() {
+        String[] names = {"Joel", "JOHN", "Noel", "JAME", "MIKEL"};
+        String actual = Greeting.greet(names);
+
+        String expected = "Hello, Joel and Noel. AND HELLO JOHN, MIKEL AMD JAME!";
         Assert.assertEquals(expected, actual);
     }
 }
