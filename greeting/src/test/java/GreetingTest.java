@@ -105,7 +105,7 @@ public class GreetingTest {
         String escaped = "\"Jane,123\"";
         String[] actual = Greeting.splitInput(escaped);
 
-        String[] expected = new String[] {escaped};
+        String[] expected = new String[] {"Jane,123"};
         Assert.assertArrayEquals(expected, actual);
     }
 

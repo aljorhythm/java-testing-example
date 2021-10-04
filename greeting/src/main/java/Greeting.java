@@ -55,8 +55,18 @@ public class Greeting {
         boolean isEscaped = false;
 
         for (char c : input.toCharArray()) {
-            if (c == ',') {
-                inputs.add(parsed);
+            if (isEscaped) {
+                if (c == '"') {
+                    isEscaped = false;
+                } else if (parsed == null) {
+                    parsed = "" + c;
+                } else {
+                    parsed += c;
+                }
+            } else if (c == '"') {
+                isEscaped = true;
+            } else if (c == ',') {
+                inputs.add(parsed.strip());
                 parsed = null;
             } else {
                 if (parsed == null) {
@@ -68,7 +78,7 @@ public class Greeting {
         }
 
         if (parsed != null) {
-            inputs.add(parsed);
+            inputs.add(parsed.strip());
         }
 
         return inputs.toArray(String[]::new);
