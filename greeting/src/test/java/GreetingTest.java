@@ -58,19 +58,19 @@ public class GreetingTest {
 
     @Test
     public void GreetWithMixedNamesOutOfOrder() {
-        String[] names = {"Joel", "JOHN", "Noel", "JAME"};
+        String[] names = {"Joel", "JOHN", "Noel", "JANE"};
         String actual = Greeting.greet(names);
 
-        String expected = "Hello, Joel and Noel. AND HELLO JOHN AMD JAME!";
+        String expected = "Hello, Joel and Noel. AND HELLO JOHN AND JANE!";
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void GreetWithMixedMultipleNames() {
-        String[] names = {"Joel", "JOHN", "Noel", "JAME", "MIKEL"};
+        String[] names = {"Joel", "JOHN", "Noel", "JANE", "MIKEL"};
         String actual = Greeting.greet(names);
 
-        String expected = "Hello, Joel and Noel. AND HELLO JOHN, MIKEL, AMD JAME!";
+        String expected = "Hello, Joel and Noel. AND HELLO JOHN, JANE, AND MIKEL!";
         Assert.assertEquals(expected, actual);
     }
 }
