@@ -25,7 +25,7 @@ public class GreetingTest {
         String name = "JOEL";
         String actual = Greeting.greet(name);
 
-        String expected = "HELLO, JOEL!";
+        String expected = "HELLO JOEL!";
         Assert.assertEquals(expected, actual);
     }
 
