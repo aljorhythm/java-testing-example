@@ -91,4 +91,39 @@ public class GreetingTest {
         String expected = "Hello, Joel and Noel. AND HELLO JOHN, JANE, AND MIKEL!";
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void SplitSingleInputShouldReturnAsIs() {
+        String[] actual = Greeting.splitInput("Jane");
+
+        String[] expected = new String[] {"Jane"};
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void SplitSingleEscapedInputShouldReturnAsIs() {
+        String escaped = "\"Jane,123\"";
+        String[] actual = Greeting.splitInput(escaped);
+
+        String[] expected = new String[] {"Jane,123"};
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void SplitMultipleInput() {
+        String input = "Jane,JOHN";
+        String[] actual = Greeting.splitInput(input);
+
+        String[] expected = new String[] {"Jane", "JOHN"};
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void SplitEscapedInput() {
+        String input = "\"Jane, 1!JOHN\", Joel";
+        String[] actual = Greeting.splitInput(input);
+
+        String[] expected = new String[] {"Jane, 1!JOHN", "Joel"};
+        Assert.assertArrayEquals(expected, actual);
+    }
 }

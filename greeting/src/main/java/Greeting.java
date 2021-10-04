@@ -49,6 +49,41 @@ public class Greeting {
         return greetFormat("HELLO ", ", ", ",", " AND ", "!", names);
     }
 
+    public static String[] splitInput(String input) {
+        List<String> inputs = new ArrayList<>();
+        String parsed = null;
+        boolean isEscaped = false;
+
+        for (char c : input.toCharArray()) {
+            if (isEscaped) {
+                if (c == '"') {
+                    isEscaped = false;
+                } else if (parsed == null) {
+                    parsed = "" + c;
+                } else {
+                    parsed += c;
+                }
+            } else if (c == '"') {
+                isEscaped = true;
+            } else if (c == ',') {
+                inputs.add(parsed.strip());
+                parsed = null;
+            } else {
+                if (parsed == null) {
+                    parsed = "" + c;
+                } else {
+                    parsed += c;
+                }
+            }
+        }
+
+        if (parsed != null) {
+            inputs.add(parsed.strip());
+        }
+
+        return inputs.toArray(String[]::new);
+    }
+
     public static String greet(String... names) {
         List<String> lowercaseNames = new ArrayList<>();
         List<String> uppercaseNames = new ArrayList<>();
@@ -57,7 +92,7 @@ public class Greeting {
             if (nameOrCombined == null) {
                 continue;
             }
-            String[] splitNames = nameOrCombined.split(",");
+            String[] splitNames = splitInput(nameOrCombined);
             for (String name : splitNames) {
                 name = name.strip();
                 if (name.chars().allMatch(Character::isUpperCase)) {
