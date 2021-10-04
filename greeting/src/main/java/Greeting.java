@@ -60,7 +60,7 @@ public class Greeting {
             }
         }
 
-        if (names.length == 0) {
+        if (uppercaseNames.isEmpty() && lowercaseNames.isEmpty()) {
             return greetSoft(new String[]{"my friend"});
         }
 
