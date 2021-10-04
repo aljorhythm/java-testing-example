@@ -20,3 +20,5 @@ jobs:
           distribution: 'adopt'
       - name: Build Greeting with Maven
         run: mvn install -pl greeting -am
+      - name: Build Unusual Spending with Maven
+        run: mvn install -pl unusual-spending -am
