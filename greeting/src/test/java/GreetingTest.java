@@ -73,4 +73,22 @@ public class GreetingTest {
         String expected = "Hello, Joel and Noel. AND HELLO JOHN, JANE, AND MIKEL!";
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void GreetWithCombinedInput() {
+        String[] names = {"Joel,John"};
+        String actual = Greeting.greet(names);
+
+        String expected = "Hello, Joel and John.";
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void GreetWithCombinedInputMultiple() {
+        String[] names = {"Joel,JOHN", "Noel", "JANE", "MIKEL"};
+        String actual = Greeting.greet(names);
+
+        String expected = "Hello, Joel and Noel. AND HELLO JOHN, JANE, AND MIKEL!";
+        Assert.assertEquals(expected, actual);
+    }
 }

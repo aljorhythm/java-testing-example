@@ -53,13 +53,18 @@ public class Greeting {
         List<String> lowercaseNames = new ArrayList<>();
         List<String> uppercaseNames = new ArrayList<>();
 
-        for (String name : names) {
-            if (name == null) {
+        for (String nameOrCombined : names) {
+            if (nameOrCombined == null) {
                 continue;
-            } else if (name.chars().allMatch(Character::isUpperCase)) {
-                uppercaseNames.add(name);
-            } else {
-                lowercaseNames.add(name);
+            }
+            String[] splitNames = nameOrCombined.split(",");
+            for (String name : splitNames) {
+                name = name.strip();
+                if (name.chars().allMatch(Character::isUpperCase)) {
+                    uppercaseNames.add(name);
+                } else {
+                    lowercaseNames.add(name);
+                }
             }
         }
 
