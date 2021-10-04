@@ -50,7 +50,28 @@ public class Greeting {
     }
 
     public static String[] splitInput(String input) {
-        return input.split(",");
+        List<String> inputs = new ArrayList<>();
+        String parsed = null;
+        boolean isEscaped = false;
+
+        for (char c : input.toCharArray()) {
+            if (c == ',') {
+                inputs.add(parsed);
+                parsed = null;
+            } else {
+                if (parsed == null) {
+                    parsed = "" + c;
+                } else {
+                    parsed += c;
+                }
+            }
+        }
+
+        if (parsed != null) {
+            inputs.add(parsed);
+        }
+
+        return inputs.toArray(String[]::new);
     }
 
     public static String greet(String... names) {
